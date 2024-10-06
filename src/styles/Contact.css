@@ -1,16 +1,19 @@
 .contact-container {
   display: flex;
   flex-direction: row;
-  height: 100vh; /* Extend to full height of the viewport */
+  justify-content: center;
+  gap: 50px;
+ 
 }
 
 .contact-left,
 .contact-right {
-  width: 45%;
+
   padding: 20px; /* Keep padding */
   padding-left: 40px; /* Add more left padding */
   padding-right: 40px; /* Add more right padding */
   border-radius: 8px;
+ 
 }
 
 .contact-right {
@@ -92,12 +95,14 @@
   display: flex;
   flex-direction: column; /* Stack form groups vertically */
  
+ 
 }
 
 .form-group {
   display: flex; /* Use flexbox to align label and input */
   align-items: center; /* Center items vertically */
   margin-bottom: 15px; /* Space between form groups */
+  
 }
 
 .form-group label {
@@ -112,6 +117,7 @@
   padding: 5px; /* Adjust padding */
   border: 1px solid #ccc; /* Border style */
   font-size: 14px; /* Font size */
+  
 }
 
 .contact-form textarea {
@@ -135,3 +141,18 @@
   
 }
 
+
+
+
+@media (max-width: 768px) {
+  .contact-container {
+    flex-wrap: wrap;
+  }
+  p {
+    font-size: 11px;
+  }
+  h1,h2,h3{
+    font-size: 15px;
+  }
+
+}

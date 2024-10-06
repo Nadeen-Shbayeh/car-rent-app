@@ -1,16 +1,19 @@
 /* Footer.css */
+/* Footer.css */
+
 .footer {
-    background-color: #727d80; /* Dark background */
-    color: white; /* White text */
-    padding: 20px; /* Padding around the footer */
-    text-align: center; /* Center text */
-    position: relative; /* Allows positioning */
-    bottom: 0; /* Sticks to the bottom */
-    width: 100%; /* Full width */
-  }
+  background-color: #727d80; /* Dark background */
+  color: white; /* White text */
+  padding: 20px;
+  text-align: center;
+  /* Remove bottom positioning */
+  margin-top: auto; /* Push the footer to the bottom when there's little content */
+ 
+}
+
   
   .footer-content {
-    max-width: 1200px; /* Max width for the content */
+  
     margin: auto; /* Center the content */
   }
  

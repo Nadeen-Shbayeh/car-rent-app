@@ -5,12 +5,27 @@
     
   }
   
-  .title {
-    text-align: center;
-    font-size: 36px;
-    margin-bottom: 20px;
-    color: #000000;
+ /* Add animation for the title */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px); /* Start slightly below */
   }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* End at the original position */
+  }
+}
+
+.title {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: #000000;
+  opacity: 0; /* Initially invisible */
+  animation: fadeInUp 1s ease-in-out forwards; /* Apply the animation */
+}
+
   
   .about-intro p {
     font-size: 18px;
@@ -34,12 +49,15 @@
   
   .team {
     margin-bottom: 40px;
+    
    
   }
   
   .team-members {
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
     
   }
   
@@ -72,10 +90,15 @@
     background-color: #ecf0f1;
     padding: 20px;
     border-radius: 8px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
   }
   
   .stat-item {
     text-align: center;
+    
   }
   
   .stat-item h3 {
@@ -83,3 +106,16 @@
     color: #41be0f;
   }
   
+
+  @media (max-width: 768px) {
+    p {
+      font-size: 11px;
+    }
+    h1,h2,h3{
+      font-size: 15px;
+    }
+  
+    .selected-car-details {
+      flex-direction: column;
+    }
+  }

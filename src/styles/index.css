@@ -1,9 +1,19 @@
 /* src/styles/index.css */
 
-body {
+body{
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
   background-color: #f9f9f9;
 }
 
+html, body {
+  height: 100%; /* Make sure the height is 100% for both html and body */
+  margin: 0; /* Remove default margin */
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensure it takes at least the full viewport height */
+}

@@ -1,52 +1,89 @@
 .App {
   font-family: Arial, sans-serif;
   text-align: center;
+  flex: 1; /* This will make the main content take up available space */
+  display: flex;
+  flex-direction: column;
 }
 
 nav {
   display: flex;
-  justify-content: center; /* Centers the navbar items */
-  background-color: #727d80; /* Optional: adds a background color */
+  justify-content: space-between; /* Space between logo and nav links */
+  align-items: center; /* Vertically center items */
+  background-color: #727d80; /* Background color */
   padding: 10px;
 }
 
-nav a {
-  margin: 0 15px; /* Adds space between the links */
+.logo {
+  width: 120px; /* Adjust the size as needed */
+  height: auto;
+  margin-left: 50px; /* Margin from the left edge */
+}
+
+.nav-links {
+  display: flex; /* Flex container for links */
+  justify-content: right;
+  list-style-type: none;
+}
+
+.nav-links a {
+  margin: 0 15px;
   text-decoration: none;
   color: rgb(245, 245, 245);
   font-weight: bold;
-  margin-top: 15px;
 }
 
-nav a:hover {
+.nav-links a:hover {
   text-decoration: underline;
 }
 
+/* Hamburger button (hidden on larger screens) */
+.hamburger {
+  display: none; /* Hidden by default */
+  flex-direction: column;
+  cursor: pointer;
 
-.logo {
-  width: 110px;   /* Adjust the size as needed */
-  height: auto;
-  margin-right: 0;
 }
 
-.p{
-  margin-right: 100px;
-  color: rgb(248, 248, 248);
-  text-decoration: none;
-
-  font-weight: bold;
+.hamburger div {
+  width: 25px;
+  height: 3px;
+  background-color: #fff;
+  margin: 4px 10px;
+  
 }
 
+/* Media query for smaller screens */
 @media (max-width: 768px) {
-  nav {
-    flex-direction: column;
+  .nav-links {
+    display: none; /* Hide nav links initially on mobile */
+    flex-direction: column; /* Stack items vertically */
+    background-color: #727d80; /* Same color as nav */
+    position: absolute;
+    top: 60px; /* Place below navbar */
+    right: 0;
+    width: 100%;
+    text-align: center;
+    z-index: 1;
+   
+    
   }
 
-  nav .logo {
-    margin-bottom: 10px; /* Add space between logo and links in mobile */
+  .nav-links a {
+    margin: 15px 0; /* More spacing for mobile */
   }
 
-  nav a {
-    margin: 10px 0;
+  /* Show the hamburger button on smaller screens */
+  .hamburger {
+    display: flex;
+  }
+
+  /* Show links when menu is open */
+  .nav-links.open {
+    display: flex; /* Make the links visible */
+  }
+
+  .logo{
+    margin-left: 10px;
   }
 }

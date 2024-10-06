@@ -25,7 +25,16 @@ const Contact = () => {
     <button type="submit">Send Message</button>
   </div>
 </form>
+<div className="social-media-icons-container">
+        <h2>Find us on Social Media</h2>
 
+          <div className="social-media-icons">
+            <FaFacebook />
+            <FaTwitter />
+            <FaInstagram />
+            <FaLinkedin />
+          </div>
+        </div>
       </div>
 
       <div className="contact-right">
@@ -43,17 +52,6 @@ const Contact = () => {
             allowFullScreen=""
             loading="lazy"
           ></iframe>
-        </div>
-
-        <div className="social-media-icons-container">
-        <h2>Find us on Social Media</h2>
-
-          <div className="social-media-icons">
-            <FaFacebook />
-            <FaTwitter />
-            <FaInstagram />
-            <FaLinkedin />
-          </div>
         </div>
       </div>
     </div>
