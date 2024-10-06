@@ -117,4 +117,84 @@
     margin-right: 8px; /* Space between icon and text */
     color: #007bff; /* Change color to match your design */
   }
+  .search-bar {
+    display: flex;
+    justify-content: flex-end; /* Align the search bar to the right */
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .search-icon {
+    margin-right: 10px;
+    color: #727d80; /* Adjust icon color */
+    font-size: 1.5rem;
+  }
+  
+  .search-input {
+ 
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: width 0.3s ease; /* Animate the width on focus */
+  }
+  
+
+  .search-bar-wrapper {
+    display: flex;
+    justify-content: right;
+    margin-right: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .search-bar {
+    position: relative;
+    
+  }
+  
+  .search-input {
+   
+    padding: 10px 40px 10px 20px; /* Padding to accommodate the icon */
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .search-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+  }
+  
+
+/* Pagination styles */
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.page-btn {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  padding: 8px 16px;
+  margin: 0 5px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.page-btn.active {
+  background-color: #007BFF;
+  color: white;
+}
+
+.page-btn:hover {
+  background-color: #0056b3;
+  color: white;
+}
+
+
   

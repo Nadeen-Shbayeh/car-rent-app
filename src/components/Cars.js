@@ -1,45 +1,70 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { 
-  faCar, 
-  faDoorOpen, 
-  faSuitcase, 
-  faUser, 
-  faTachometerAlt, 
-  faSnowflake, 
-  faDollarSign,
-  faGasPump
-} from '@fortawesome/free-solid-svg-icons';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { faSearch, faCar, faDoorOpen, faSuitcase, faUser, faTachometerAlt, faSnowflake, faDollarSign, faGasPump } from '@fortawesome/free-solid-svg-icons';
+import { useNavigate } from 'react-router-dom';
 import '../styles/Cars.css';
 import carList from './CarList';
 
 const Cars = () => {
   const [selectedCar, setSelectedCar] = useState(null);
-  const detailsRef = useRef(null); // Create a ref for the car details section
-  const navigate = useNavigate(); // Initialize useNavigate
+  const [searchTerm, setSearchTerm] = useState('');
+  const [currentPage, setCurrentPage] = useState(1); // Track the current page
+  const [carsPerPage] = useState(4); // Number of cars to display per page
+  const detailsRef = useRef(null);
+  const navigate = useNavigate();
 
   const handleSelectCar = (car) => {
     setSelectedCar(car);
   };
 
+  const handleSearch = (event) => {
+    setSearchTerm(event.target.value.toLowerCase());
+  };
+
   useEffect(() => {
-    // Scroll to the car details section after the selectedCar is updated
     if (selectedCar && detailsRef.current) {
       detailsRef.current.scrollIntoView({ behavior: 'smooth' });
     }
-  }, [selectedCar]); // useEffect will run when selectedCar changes
+  }, [selectedCar]);
 
   const handleBookCar = () => {
-    // Navigate to the booking page with the selected car's details
     navigate('/book', { state: { make: selectedCar.make, model: selectedCar.model, price: selectedCar.price, image: selectedCar.image } });
   };
+
+  // Filter cars based on search input
+  const filteredCars = carList.filter((car) =>
+    car.make.toLowerCase().includes(searchTerm) || car.model.toLowerCase().includes(searchTerm)
+  );
+
+  // Logic for displaying current cars
+  const indexOfLastCar = currentPage * carsPerPage;
+  const indexOfFirstCar = indexOfLastCar - carsPerPage;
+  const currentCars = filteredCars.slice(indexOfFirstCar, indexOfLastCar);
+
+  // Handle pagination change
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
     <div className="cars-container">
       <h1 className="title">Available Cars for Rent</h1>
+
+      {/* Centered search input with embedded icon */}
+      <div className="search-bar-wrapper">
+        <div className="search-bar">
+          <input
+            type="text"
+            placeholder="Search"
+            value={searchTerm}
+            onChange={handleSearch}
+            className="search-input"
+          />
+          <FontAwesomeIcon icon={faSearch} className="search-icon" />
+        </div>
+      </div>
+
+      {/* Display filtered cars */}
       <div className="cars-list">
-        {carList.map((car) => (
+        {currentCars.map((car) => (
           <div key={car.id} className="car-card" onClick={() => handleSelectCar(car)}>
             <img src={car.image} alt={`${car.make} ${car.model}`} className="car-image" />
             <div className="car-details">
@@ -48,6 +73,19 @@ const Cars = () => {
               <p>{car.price}</p>
             </div>
           </div>
+        ))}
+      </div>
+
+      {/* Pagination */}
+      <div className="pagination">
+        {[...Array(Math.ceil(filteredCars.length / carsPerPage)).keys()].map((number) => (
+          <button
+            key={number}
+            className={`page-btn ${currentPage === number + 1 ? 'active' : ''}`}
+            onClick={() => paginate(number + 1)}
+          >
+            {number + 1}
+          </button>
         ))}
       </div>
 
