@@ -1,0 +1,137 @@
+.contact-container {
+  display: flex;
+  flex-direction: row;
+  height: 100vh; /* Extend to full height of the viewport */
+}
+
+.contact-left,
+.contact-right {
+  width: 45%;
+  padding: 20px; /* Keep padding */
+  padding-left: 40px; /* Add more left padding */
+  padding-right: 40px; /* Add more right padding */
+  border-radius: 8px;
+}
+
+.contact-right {
+  border-radius: 5px; /* Optional: rounded corners */
+  overflow: hidden; /* Hide overflow if needed */
+}
+
+.map-container {
+  width: 100%; /* Full width of the container */
+  height: 100%; /* Full height of the container */
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-left h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.contact-left p {
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+}
+
+
+
+.contact-form .form-group {
+  display: flex; /* Use flex to align label and input */
+  margin-bottom: 15px; /* Space between form groups */
+}
+
+
+.contact-form input,
+.contact-form textarea {
+  width: calc(70% - 30px); /* Ensure they don't go edge-to-edge */
+  padding: 5px; /* Reduced padding for less height */
+  border: 1px solid #ccc;
+  font-size: 14px; /* Optional: adjust font size for consistency */
+  line-height: 1.4; /* Optional: adjust line height for less vertical space */
+}
+
+.contact-form textarea {
+  height: 80px; /* Adjust the height for the textarea */
+}
+
+
+.contact-right h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.contact-right p {
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+}
+
+.social-media-icons-container {
+  margin-top: 20px;
+}
+
+.social-media-icons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-media-icons svg {
+  font-size: 2rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.social-media-icons svg:hover {
+  color: #007BFF;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column; /* Stack form groups vertically */
+ 
+}
+
+.form-group {
+  display: flex; /* Use flexbox to align label and input */
+  align-items: center; /* Center items vertically */
+  margin-bottom: 15px; /* Space between form groups */
+}
+
+.form-group label {
+  width: 30%; /* Set a fixed width for labels */
+  margin-right: 10px; /* Space between label and input */
+  font-size: 1.1rem; /* Optional: adjust font size */
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 70%; /* Adjust input and textarea width */
+  padding: 5px; /* Adjust padding */
+  border: 1px solid #ccc; /* Border style */
+  font-size: 14px; /* Font size */
+}
+
+.contact-form textarea {
+  height: 80px; /* Height for the textarea */
+}
+
+.contact-form button {
+  padding: 10px; /* Add some padding for better click area */
+  background-color: #007BFF; /* Button background color */
+  color: white; /* Button text color */
+  border: none; /* Remove border */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  width: 40%; /* Adjust input and textarea width */
+  height: 60px;
+   
+}
+
+.contact-form button:hover {
+  background-color: #0056b3; /* Button hover color */
+  
+}
+
